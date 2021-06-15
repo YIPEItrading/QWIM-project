@@ -13,10 +13,11 @@ pathFile <- base::file.path("CheckpointUtils.R")
 base::source(file = pathFile,
              local = TRUE)
 
-packagesThatAreNeededFirst <- c("checkpoint")
-InstallPackages_Overlay(
-  packagesToCheck = packagesThatAreNeededFirst,
-  snapshotDate = snapshotDateForPackages)
+
+isPackage_Installed <- "checkpoint" %in% rownames(installed.packages())
+if (!isPackage_Installed){
+  utils::install.packages("checkpoint")
+}
 
 SetupSnapshot(
   snapshotDate = snapshotDateForPackages,

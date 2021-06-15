@@ -138,16 +138,9 @@ SetupSnapshot <- function(
   base::cat(theMessage)
   
   checkpoint::checkpoint(
-    snapshotDate = checkpointSnapshotDate,
-    R.version = versionR_Checkpoint,
-    checkpointLocation = theCheckpointFolder,
-    scanForPackages = TRUE,
-    forceInstall = FALSE, 
-    verbose = TRUE,
-    use.knitr = TRUE,
-    scan.rnw.with.knitr = TRUE,
-    auto.install.knitr = TRUE)
-#                         config = list(platforms="source"))
+    snapshot_date = checkpointSnapshotDate,
+    r_version = versionR_Checkpoint,
+    checkpoint_location = theCheckpointFolder)
   
 }
 
